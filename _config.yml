@@ -1,0 +1,12 @@
+title: Nelu Snegur
+email: nelu@pulsarplanet.com
+description: >-
+  Software Engineer
+url: "https://pulsarplanet.com"
+twitter_username: nelusnegur
+github_username:  nelusnegur
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
