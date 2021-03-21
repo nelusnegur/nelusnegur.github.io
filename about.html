@@ -1,5 +1,28 @@
 ---
-layout: page
+layout: default
 title: About
 permalink: /about/
 ---
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 text-center">
+            <div class="avatar">
+                <img src="/assets/img/avatar.jpg" alt="avatar">
+            </div>
+            <h5 class="name">{{ site.author.name }}</h5>
+            {% include contacts.html %}
+        </div>
+        <div class="col-9">
+            <h2 class="description-title">Software Engineer</h2>
+            <div class="description">
+                <p>Hello! I am currently working as a software engineer at <a
+                    href="https://www.commercetools.com/">commercetools
+                    GmbH.</a>
+                </p>
+                <p>I'm intersted in distributed systems, high performance computing, mathematics and physics.</p>
+            </div>
+            </br>
+        </div>
+    </div>
+</div>

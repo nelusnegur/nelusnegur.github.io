@@ -1,0 +1,22 @@
+.footer {
+    flex-shrink: 0;
+    margin: 8rem 0 0 0;
+    padding: 2rem 0;
+    border-top: #EBF2F6 1px solid;
+    font-family: 'Noto Serif Italic', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.7em;
+    color: #BBC7CC;
+    text-align: center;
+    background: #F7FAFB;
+}
+
+.footer a {
+    color: #BBC7CC;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

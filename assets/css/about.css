@@ -1,0 +1,51 @@
+.text-center {
+    text-align: center;
+}
+
+.avatar {
+    display: block;
+    border-radius: 5em;
+    overflow: hidden;
+    width: 10em;
+    height: 10em;
+    margin-top: 30%;
+    margin-right: auto;
+    margin-bottom: 1.5em;
+    margin-left: auto;
+}
+
+.avatar img {
+    display: inline;
+    height: 100%;
+}
+
+.name {
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.description-title {
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 1.2;
+}
+
+.description {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.contact-list .contact-link {
+    padding-right: 5px;
+}
+
+.contact-link, .contact-link:visited {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.contact-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

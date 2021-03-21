@@ -1,0 +1,16 @@
+<footer class="footer">
+    <div>
+        <a href="{{ 'feed.xml' | relative_url }}" alt="RSS" class="tooltip">
+            <i class="fas fa-rss"></i>
+            <span class="tooltiptext">Subscribe!</span>
+        </a>
+        <section class="disclaimer">
+            This is a personal blog. The opinions expressed here are my own.
+        </section>
+        <section class="copyright">
+            All content copyright
+            <a href="{{ site.url }}">{{ site.author.name }}</a>
+            © {{ 'now' | date: '%Y' }} • All rights reserved.
+        </section>
+    </div>
+</footer>
