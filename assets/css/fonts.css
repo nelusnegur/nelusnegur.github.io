@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "Noto Serif";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/NotoSerif-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Noto Serif Italic";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/NotoSerif-Italic.ttf");
+}
+
+@font-face {
+    font-family: "Noto Serif Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/assets/fonts/NotoSerif-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Noto Serif Bold Italic";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/assets/fonts/NotoSerif-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/NotoSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Noto Sans Italic";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/NotoSans-Italic.ttf");
+}
+
+@font-face {
+    font-family: "Noto Sans Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/assets/fonts/NotoSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Noto Sans Bold Italic";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/assets/fonts/NotoSans-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: "Inconsolata";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/Inconsolata-Regular.ttf");
+}

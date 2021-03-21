@@ -1,0 +1,26 @@
+:root {
+    --header-bg: #f2ebe5;
+    --header-border: #e8e8e8;
+
+    --site-title-fg: #595959;
+    --site-title-hover: #222;
+
+    --nav-link: #647295;
+    --nav-link-hover: #9f496e;
+
+    --body-bg: #fff;
+
+    --footer-fg: #6992B4;
+    --footer-bg: #E5ECF2;
+    --footer-border: #ebf2f6;
+
+    --footer-link: #456b8a;
+    --footer-link-hover: #e79200;
+
+    --link: #4a4a4a;
+    --link-hover: #9f496e;
+
+    --contact-link: #647295;
+    --contact-link-hover: #9f496e;
+}
+  

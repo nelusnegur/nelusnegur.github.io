@@ -1,0 +1,42 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    padding-top: 5%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.col-1 { flex: 8.33%; }
+.col-2 { flex: 16.66%; }
+.col-3 { flex: 25%; }
+.col-4 { flex: 33.33%; }
+.col-5 { flex: 41.66%; }
+.col-6 { flex: 50%; }
+.col-7 { flex: 58.33%; }
+.col-8 { flex: 66.66%; }
+.col-9 { flex: 75%; }
+.col-10 { flex: 83.33%; }
+.col-11 { flex: 91.66%; }
+.col-12 { flex: 100%; }
+
+[class*="col-"] {
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        flex: 100%;
+    }
+}

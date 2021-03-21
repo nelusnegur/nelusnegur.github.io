@@ -1,0 +1,120 @@
+.header {
+    border-bottom: 1px solid var(--header-border);
+    background: var(--header-bg);
+}
+
+.header-content {
+    max-width: 960px;
+    width: 100%;
+    padding: 5px 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 54px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    text-decoration: none;
+    transition: color ease 0.3s;
+}
+
+.site-title, .site-title:visited {
+    color: var(--site-title-fg);
+    font-family: Noto Sans, sans-serif;
+    text-decoration: none;
+}
+
+.site-title:hover {
+    color: var(--site-title-hover);
+}
+
+.nav {
+    font-size: 1rem;
+    line-height: 54px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link, .nav-link:visited {
+    color: var(--nav-link);
+    line-height: 1.5;
+    font-family: Noto Sans, sans-serif;
+    text-decoration: none;
+    transition: color ease 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--nav-link-hover);
+    text-decoration: none;
+    font-family: Noto Sans, sans-serif;
+}
+
+.nav-collapsible {
+    display: none;
+}
+
+.nav .menu-icon {
+    display: none
+}
+
+.nav-link:not(:last-child) {
+    margin-right: 20px
+}
+
+@media screen and (max-width: 600px) {
+    .nav {
+        position: absolute;
+        top: 9px;
+        right: 15px;
+        background-color: #fdfdfd;
+        border: 1px solid #e8e8e8;
+        border-radius: 5px;
+        text-align: right;
+    }
+
+    .nav label[for="nav-collapsible"] {
+        display: block;
+        float: right;
+        width: 36px;
+        height: 36px;
+        z-index: 2;
+        cursor: pointer
+    }
+
+    .nav .menu-icon {
+        display: block;
+        float: right;
+        width: 36px;
+        height: 26px;
+        line-height: 0;
+        padding-top: 10px;
+        text-align: center
+    }
+
+    .nav .menu-icon > svg {
+        fill: #424242
+    }
+
+    .nav input ~ .collapsible {
+        clear: both;
+        display: none
+    }
+
+    .nav input:checked ~ .collapsible {
+        display: block;
+        padding-bottom: 5px
+    }
+
+    .nav-link {
+        display: block;
+        padding: 5px 10px;
+        margin-left: 20px
+    }
+
+    .nav-link:not(:last-child) {
+        margin-right: 0
+    }
+}
