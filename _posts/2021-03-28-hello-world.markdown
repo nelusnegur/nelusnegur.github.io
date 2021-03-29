@@ -9,7 +9,7 @@ in my favorite programming languages!
 You can find a short description about me and why this blog exists on the [About](/about) page.
 
 My favorite programming languages are Rust and Scala. Currently, I am working as a software engineer
-with Scala. During the covid-19 pandemic, I have started learning Rust and it became my favorite programming language.
+with Scala. During Covid-19 pandemic, I have started learning Rust and it became my favorite programming language.
 
 The "Hello world" program in Scala would look like this:
 {% highlight scala %}
