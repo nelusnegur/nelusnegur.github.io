@@ -595,7 +595,7 @@ Let's see what we have learned about B-trees:
 - a B-tree is a generalization of the **b**inary search tree
 - a B-tree is a self-**b**alancing tree
 - a B-tree has a **b**ranching factor much greater than that of a binary search tree, which plays a key role in minimizing the height of the tree
-- the branching factor of the B-tree represents the **b**ase of exponentiation and logarithm used to determine the number entries and the height of the B-tree
+- the branching factor of the B-tree represents the **b**ase of exponentiation and logarithm used to determine the number of entries and the height of the B-tree
 - B-tree was invented by people working at **B**oeing Research Labs
 - the name of the one of the inventors is Rudolf **B**ayer
 - tress that have a B-tree at their base and include improvements, like __B+__ tree and __B*__ tree, are commonly called the family of B-trees.
