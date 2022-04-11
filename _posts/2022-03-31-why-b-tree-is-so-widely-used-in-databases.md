@@ -4,7 +4,7 @@ title:  "Why B-tree is so widely used in databases?"
 date:   2022-03-31 07:00:00 +0100
 ---
 I have spent quite some time researching how a database works internally and I thought to 
-write about what I have learned so far. A database system consists of many components like
+write about what I have learned so far. A database system consists of many components
 like the query planner, the query execution engine, the storage engine, the data replication
 and sharding mechanisms, etc. The key component is the storage engine, which determines how
 the data is represented, accessed and stored. It consists of several different components,
@@ -68,10 +68,9 @@ otherwise specified.
 
 ![Binary search tree](/assets/posts/b-tree/binary-search-tree.png)
 
-The minimum height of the binary search tree is \\(log_2 n\\), where n is the number of nodes
-in the tree. This follows from the structure of the tree. Each node can have at most two child nodes.
-So on the first level of tree we can have at most one node (the root), on the second level 
-we can have at most two nodes, on the third level four nodes, on the forth level eight nodes 
+The minimum height of the binary search tree is \\(log_2 (n + 1) - 1\\), where n is the number of
+nodes in the tree. This follows from the structure of the tree. Each node can have at most two
+child nodes. So on the first level of tree we can have at most one node (the root), on the second level we can have at most two nodes, on the third level four nodes, on the forth level eight nodes
 and so on. It forms a [geometric progression](https://en.wikipedia.org/wiki/Geometric_series#Closed-form_formula) of the following form:
 
 \begin{aligned}
@@ -91,12 +90,12 @@ Therefore, the minimum number of levels, that is, the minimum height of the tree
 \end{aligned}
 
 So the average time complexity of all three operations (search, insert and delete)
-is \\(O(log_{2}{n})\\). The insertion and deletion operations have to perform a binary search in 
-order to determine where to insert or delete the record. But their worst time complexity 
-is \\(O(n)\\). This is because the tree becomes unbalanced (i.e. the height of tree is 
-greater than \\(log_2 n \\)) after arbitrary insertions and deletions. Furthermore, if we insert 
-records that are already sorted, then the tree will degenerate into a linked list 
-(each record will be inserted into one part of the tree leaving the other part empty). 
+is \\(O(log_{2}{n})\\). The insertion and deletion operations have to perform a binary search in
+order to determine where to insert or delete the record. But their worst time complexity
+is \\(O(n)\\). This is because the tree becomes unbalanced (i.e. the height of tree is
+greater than \\(log_2 n \\)) after arbitrary insertions and deletions. Furthermore, if we insert
+records that are already sorted, then the tree will degenerate into a linked list
+(each record will be inserted into one part of the tree leaving the other part empty).
 One example of unbalance of the above binary search tree depending on the order of insert and
 delete operations looks like the following:
 
@@ -150,21 +149,21 @@ operation.
 
 Let's play with the structure of the binary search tree keeping in mind the problems of the height
 and see if we can do something about them. The level of a node is the number of edges from it
-to the root. The root node has level zero, because it does not have a root.
-The height of the tree is equal to the level of the deepest node in the tree plus one, 
-or simply put, it is the total number of levels in the tree. If we reduce the number of levels,
-we reduce the height of the tree.
+to the root. The root node has level zero. The height of a node is the length of the longest
+path of edges to a leaf from that node. A leaf node has hight zero. The height of the root node is
+the height of the tree. It is similar to the level of a node, it is just counted in the opposite
+direction.
 
 A tree is composed of smaller subtrees. Let's identify subtrees of an arbitrary height
-in our binary search tree example. If we choose the height to be two, we can find 
+in our binary search tree example. If we choose the height to be one, we can find 
 the following subtrees:
 
 ![Deriving B-tree](/assets/posts/b-tree/deriving-b-tree.png)
 
 We can make an interesting observation that if we consider each subtree as being a node, we
-obtain a new tree where the total number of levels is reduced by half and hence the height of
+obtain a new tree where the total number of levels is reduced by half and the height of
 the tree is also reduced by half. We can think of it as creating a tree of a tree, 
-where each node of the new tree references a subtree of the old one. 
+where each node of the new tree references a subtree of the old one.
 
 Also, a node has more than two children. All keys of the most left child node 
 are smaller than the first key of the parent node. The keys of the second child node have 
@@ -372,10 +371,10 @@ Then, it follows, that the height of the B-tree is:
 
 This is the relationship we were looking for to understand why the size of the B-tree we
 have obtained after applying certain transformations to the binary search tree, was reduced by half.
-We had 16 entries in the binary search tree. Its height was 4 (\\(log_2{16} = 4\\)). Next we have
-created a B-tree, where each node had 3 entries representing a subtree of the binary search tree. 
-Using the above formula, we calculate the height of the B-tree to be 2 (\\(log_4{16} = 2\\)).
-Hence, the height is reduced by half, from 4 to 2.
+We had 15 entries in the binary search tree. Its height was 3 (\\(log_2{(15 + 1)} - 1 = 3\\)).
+Next we have created a B-tree, where each node had 3 entries representing a subtree of the binary 
+search tree. Using the above formula, we calculate the height of the B-tree to
+be 1 (\\(\lfloor log_4{15} \rfloor = 1\\)). Hence, the height was reduced by half, from 3 to 1.
 
 Given this relationship, we can deduce the time complexity for all B-tree operations (search, insert
 and delete) as it is shown in the following table:
@@ -606,6 +605,6 @@ investigated how records are updated in a B-tree. This would be the subject of a
 
 <hr>
 
-[^1]: These latency numbers are taken from a presentation, named *Software engineering advice from building large-scale distributed systems* ([slide 13](https://static.googleusercontent.com/media/research.google.com/en//people/jeff/stanford-295-talk.pdf)), given by Jeff Dean, a Google Fellow. They are sufficiently accurate to show the latency difference between the main and secondary memory. Originally many of these numbers were presented by Peter Norvig [here](http://norvig.com/21-days.html#answers). An interactive visualization of the evolution of latency numbers over years could be found [here](https://colin-scott.github.io/personal_website/research/interactive_latency.html).
+[^1]: These latency numbers are taken from a presentation, named *Software engineering advice from building large-scale distributed systems* ([13th slide](https://static.googleusercontent.com/media/research.google.com/en//people/jeff/stanford-295-talk.pdf)), given by Jeff Dean, a Google Fellow. They are sufficiently accurate to show the latency difference between the main and secondary memory. Originally many of these numbers were presented by Peter Norvig [here](http://norvig.com/21-days.html#answers). An interactive visualization of the evolution of latency numbers over years could be found [here](https://colin-scott.github.io/personal_website/research/interactive_latency.html).
 [^2]: The mathematical expressions describing the ordering of elements in a B-tree and its height are taken from the *Organization and maintenance of large ordered indices* paper written by the Rudolf Bayer and Edward McCreight in 1970. I highly recommend reading it. It describes in great detail the B-tree along with benchmarks assessing its performance.
 [^3]: In 1977, Rudolf Bayer and Karl Unterauer published a new paper, named *Prefix B-trees*, introducing the idea of a prefix B-tree.
