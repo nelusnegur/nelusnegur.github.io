@@ -2,6 +2,7 @@
 layout: post
 title:  "Why B-tree is so widely used in databases?"
 date:   2022-03-31 07:00:00 +0100
+image: "/assets/posts/b-tree/b-tree-small.png"
 ---
 I have spent quite some time researching how a database works internally and I thought to 
 write about what I have learned so far. A database system consists of many components

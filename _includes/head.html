@@ -9,19 +9,28 @@
     {% assign title = site.title | escape %}
     {% endif %}
 
+    {% if page.excerpt %}
+    {% assign description = page.excerpt | strip_html | xml_escape %}
+    {% else %}
+    {% assign description = site.description | escape %}
+    {% endif %}
+
     <title>{{ title }}</title>
-    <meta name="description"
-        content="{% if page.excerpt %}{{ page.excerpt | strip_html | xml_escape }}{% else %}{{ site.description }}{% endif %}">
-    <meta name="author" content="{{ site.author.name <site.author.email> }}" />
+    <meta name="description" content="{{ description }}">
+    <meta name="author" content="{{ site.author.name }}" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="{{ site.author.username }}" />
     <meta name="twitter:title" content="{{ title }}" />
 
-    {% if page.layout == "post" %}
-    <meta property="og:url" content="{{ page.url | prepend: site.url }}" />
-    <meta property="og:title" content="{{ page.title | strip_html | strip_newlines | xml_escape }}" />
-    <meta property="og:description" content="{{ page.excerpt | strip_html | xml_escape }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+
+    {% if page.image %}
+    {% assign image = page.image | prepend: site.url %}
+    <meta name="twitter:image" content="{{ image }}" />
+    <meta property="og:image" content="{{ image }}" />
     {% endif %}
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
