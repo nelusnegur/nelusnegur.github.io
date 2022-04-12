@@ -3,15 +3,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{%
-        endif %}</title>
+    {% if page.title %}
+    {% assign title = page.title | escape | append: " | " | append: site.title | escape %}
+    {% else %}
+    {% assign title = site.title | escape %}
+    {% endif %}
+
+    <title>{{ title }}</title>
     <meta name="description"
         content="{% if page.excerpt %}{{ page.excerpt | strip_html | xml_escape }}{% else %}{{ site.description }}{% endif %}">
     <meta name="author" content="{{ site.author.name <site.author.email> }}" />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="{{ site.author.username }}" />
-    <meta property="twitter:title" content="{{ site.author.name }}" />
+    <meta name="twitter:title" content="{{ title }}" />
 
     {% if page.layout == "post" %}
     <meta property="og:url" content="{{ page.url | prepend: site.url }}" />
