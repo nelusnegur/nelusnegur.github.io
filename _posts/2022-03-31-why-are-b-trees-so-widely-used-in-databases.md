@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Why B-tree is so widely used in databases?"
+title:  "Why are B-trees so widely used in databases?"
 date:   2022-03-31 07:00:00 +0100
 image: "/assets/posts/b-tree/b-tree-small.png"
 ---
@@ -560,7 +560,7 @@ node (leaf or non-leaf) up to the root, which is \\(O(log_{b}{n})\\) in the wors
 
 ## Summary
 
-In this post we have explored why the B-trees are so widely used by database storage engines to
+In this post we have explored why are the B-trees so widely used by database storage engines to
 organize the records. We have started by defining our goal which was to ensure that the data we 
 store is durable. Then we have found out that the secondary storage devices are orders of magnitude
 slower than the main memory, which led as to the data organization problem. We have briefly gone
