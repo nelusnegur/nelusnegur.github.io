@@ -10,11 +10,11 @@ layout: default
         </h2>
         <p class="post-meta">
             <span>Posted on {{ post.date | date: "%b %-d, %Y" }}</span>
-			<span class="reading-time">
-				{% assign words = post.content | number_of_words %}
-				{% assign words_per_min = words | divided_by:160 %}
-				{% if words_per_min <= 1 %} | 1 minute to read {% else %} | {{ words_per_min }} minutes to read {% endif %} 
-			</span>
+            <span class="reading-time">
+                {% assign words = post.content | number_of_words %}
+                {% assign words_per_min = words | divided_by:250 %}
+                {% if words_per_min <= 1 %} | 1 minute to read {% else %} | {{ words_per_min }} minutes to read {% endif %}
+            </span>
         </p>
     </header>
     <section>
