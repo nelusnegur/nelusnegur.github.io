@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://pulsarplanet.com/</loc>
+    </url>
+    <url>
+        <loc>https://pulsarplanet.com/about/</loc>
+    </url>
+    <url>
+        <loc>https://pulsarplanet.com/posts/</loc>
+    </url>
+    <url>
+        <loc>https://pulsarplanet.com/posts/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://pulsarplanet.com/posts/why-are-b-trees-so-widely-used-in-databases/</loc>
+        <lastmod>2022-03-31</lastmod>
+    </url>
+    <url>
+        <loc>https://pulsarplanet.com/tags/</loc>
+    </url>
+    <url>
+        <loc>https://pulsarplanet.com/tags/b-tree/</loc>
+    </url>
+    <url>
+        <loc>https://pulsarplanet.com/tags/database/</loc>
+    </url>
+</urlset>
