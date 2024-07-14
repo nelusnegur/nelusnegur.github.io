@@ -1,0 +1,19 @@
+name: Build and deploy GitHub Pages
+
+on: 
+ push:
+  branches:
+   - main
+
+jobs:
+  build:
+    name: Publish website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+      - name: Build and deploy
+        uses: shalzz/zola-deploy-action@v0.18.0
+        env:
+          PAGES_BRANCH: gh-pages
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

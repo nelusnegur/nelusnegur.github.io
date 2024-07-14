@@ -1,0 +1,32 @@
+base_url = "https://pulsarplanet.com"
+
+title = "Nelu Snegur"
+description = "Essays on software engineering, life and universe"
+
+compile_sass = true
+build_search_index = false
+theme = "apollo"
+generate_feeds = true
+taxonomies = [{ name = "tags" }]
+
+[markdown]
+highlight_code = true
+bottom_footnotes = true
+
+[extra]
+menu = [
+    { name = "/posts", url = "/posts", weight = 1 },
+    { name = "/about", url = "/about", weight = 2 },
+    { name = "/tags", url = "/tags", weight = 3 },
+]
+
+socials = [
+    { name = "github", url = "https://github.com/nelusnegur/", icon = "github" },
+    { name = "linkedin", url = "https://linkedin.com/in/nelusnegur/", icon = "linkedin" },
+    { name = "email", url = "mailto:contact@pulsarplanet.com", icon = "email" },
+]
+
+fancy_code = true
+
+mathjax = true
+mathjax_dollar_inline_enable = true

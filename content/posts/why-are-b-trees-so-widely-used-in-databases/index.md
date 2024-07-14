@@ -1,9 +1,11 @@
----
-layout: post
-title:  "Why are B-trees so widely used in databases?"
-date:   2022-03-31 07:00:00 +0100
-image: "/assets/posts/b-tree/b-tree-small.png"
----
++++
+title = "Why are B-trees so widely used in databases?"
+date = "2022-03-31"
+
+[taxonomies]
+tags=["b-tree", "database"]
++++
+
 I have spent quite some time researching how a database works internally and I thought to 
 write about what I have learned so far. A database system consists of many components
 like the query planner, the query execution engine, the storage engine, the data replication
@@ -67,7 +69,7 @@ are illustrated to show the ordering relationship between them, even though a no
 a key and its value. The same applies for all the other trees presented in this post, unless
 otherwise specified.
 
-![Binary search tree](/assets/posts/b-tree/binary-search-tree.png)
+![Binary search tree](binary-search-tree.png)
 
 The minimum height of the binary search tree is \\(log_2 (n + 1) - 1\\), where n is the number of
 nodes in the tree. This follows from the structure of the tree. Each node can have at most two
@@ -100,7 +102,7 @@ records that are already sorted, then the tree will degenerate into a linked lis
 One example of unbalance of the above binary search tree depending on the order of insert and
 delete operations looks like the following:
 
-![Unbalanced binary search tree](/assets/posts/b-tree/binary-search-tree-unbalanced.png)
+![Unbalanced binary search tree](binary-search-tree-unbalanced.png)
 
 As we can observe, when the binary search tree is unbalanced, many nodes have only a 
 single child node. This leads to an increase of the height of the tree. Consequently, the
@@ -159,7 +161,7 @@ A tree is composed of smaller subtrees. Let's identify subtrees of an arbitrary 
 in our binary search tree example. If we choose the height to be one, we can find 
 the following subtrees:
 
-![Deriving B-tree](/assets/posts/b-tree/deriving-b-tree.png)
+![Deriving B-tree](deriving-b-tree.png)
 
 We can make an interesting observation that if we consider each subtree as being a node, we
 obtain a new tree where the total number of levels is reduced by half and the height of
@@ -173,7 +175,7 @@ Lastly, the keys of the most right child node have values greater than the last 
 the parent node. If we store the entries of a node in a sorted list for simplicity, we
 get the following tree:
 
-![B-tree](/assets/posts/b-tree/b-tree.png)
+![B-tree](b-tree.png)
 
 The tree we ended up with is a form of a B-tree. In fact, it is a generalization of the
 binary search tree. It was invented by Rudolf Bayer and Edward M. McCreight while researching 
@@ -311,7 +313,7 @@ At the level zero, we have one node, the root. It has a minimum of two children,
 one, we have two nodes, each having \\(k + 1\\) children. At the level three, we have \\(k + 1 \\) 
 nodes from the first parent and \\(k + 1 \\) nodes from the second parent and so on:
 
-![B-tree min nodes](/assets/posts/b-tree/b-tree-min-nodes.png)
+![B-tree min nodes](b-tree-min-nodes.png)
 
 We can notice that both subtrees from the level one downwards are equivalent. Hence we can 
 calculate the number of nodes for one of the subtrees and then multiply it by two to get the
@@ -331,7 +333,7 @@ At the level zero, we have the root node that can have at most \\(2k + 1\\) chil
 As a result, at the level one, we have at most \\(2k + 1\\) nodes. At the next level,
 we have \\(2k + 1\\) nodes from each of the \\(2k + 1\\) parents, and so on:
 
-![B-tree max nodes](/assets/posts/b-tree/b-tree-max-nodes.png)
+![B-tree max nodes](b-tree-max-nodes.png)
 
 It forms another geometric progression. Applying its formula, we get the maximum number of
 nodes in a B-tree:
@@ -423,9 +425,9 @@ the leaf nodes without needing to traverse the internal nodes multiple times.
 
 Taking the example of the above B-tree and transforming it into a B+ tree looks like this:
 
-![B+ tree](/assets/posts/b-tree/b+tree.png)
+![B+ tree](b+tree.png)
 
-The keys from the leaf nodes are marked with an asterisk to indicate that an entry consists of
+The keys from the leaf nodes are marked with an asterisk to indicate that a node entry consists of
 the key and the associated information with that key. As a consequence, the minimum or maximum key
 of the leaf node is also present in its parent internal node. This slightly changes the relationships
 between the keys of the B+ tree, compared with those of the B-tree. Using the same notation, we can 
@@ -604,7 +606,6 @@ However, we have just explored the most essential aspects of B-trees. We have no
 B-tress handle duplicate key entries, compound keys and bulk insert. More importantly, we have not
 investigated how records are updated in a B-tree. This would be the subject of another post.
 
-<hr>
 
 [^1]: These latency numbers are taken from a presentation, named *Software engineering advice from building large-scale distributed systems* ([13th slide](https://static.googleusercontent.com/media/research.google.com/en//people/jeff/stanford-295-talk.pdf)), given by Jeff Dean, a Google Fellow. They are sufficiently accurate to show the latency difference between the main and secondary memory. Originally many of these numbers were presented by Peter Norvig [here](http://norvig.com/21-days.html#answers). An interactive visualization of the evolution of latency numbers over years could be found [here](https://colin-scott.github.io/personal_website/research/interactive_latency.html).
 [^2]: The mathematical expressions describing the ordering of elements in a B-tree and its height are taken from the *Organization and maintenance of large ordered indices* paper written by the Rudolf Bayer and Edward McCreight in 1970. I highly recommend reading it. It describes in great detail the B-tree along with benchmarks assessing its performance.
